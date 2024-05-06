@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sucursal', function (Blueprint $table) {
-            $table->uuid("id_sucursal")->primary();
+        Schema::create('archivo', function (Blueprint $table) {
+            $table->uuid("id_archivo")->primary();
             $table->char("id_tienda",36);
             $table->foreign("id_tienda")->on("tienda")->references("id_tienda")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->char("id_pais",36);
-            $table->foreign("id_pais")->on("pais")->references("id_pais")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("codigo_postal",10);
-            $table->decimal("cordenada_lat",11,8);
-            $table->decimal("cordenada_lng",11,8);
-            $table->text("direccion");
-            $table->enum("status_sucursal",["ACTIVO","INACTIVO"]);
+            $table->string("nombre_archivo",255);
+            $table->string("nombre_uuid_archivo",255);
+            $table->string("extencion",5);
+            $table->text("url");
+            $table->enum("status_archivo",["ACTIVO","INACTIVO"]);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sucursal');
+        Schema::dropIfExists('archivo');
     }
 };

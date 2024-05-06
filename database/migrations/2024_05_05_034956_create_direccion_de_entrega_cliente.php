@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('direcciones_de_entrega_cliente', function (Blueprint $table) {
-            $table->uuid("direcciones_de_entrega_cliente")->primary();
+        Schema::create('direccion_de_entrega_cliente', function (Blueprint $table) {
+            $table->uuid("id_direcciones_de_entrega_cliente")->primary();
             $table->char("id_cliente",36);
             $table->foreign("id_cliente")->on("cliente")->references("id_cliente")->cascadeOnDelete()->cascadeOnUpdate();
             $table->string("codigo_postal",10);
