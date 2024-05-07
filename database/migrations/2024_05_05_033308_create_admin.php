@@ -15,10 +15,10 @@ return new class extends Migration
             $table->uuid("id_admin")->primary();
             $table->char("id_persona",36);
             $table->foreign("id_persona")->on("persona")->references("id_persona")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("email",150);
-            $table->string("email_recuperacion_admin",150);
-            $table->char("pin_admin",5);
-            $table->text("token_admin");
+            $table->string("email",150)->unique();
+            $table->string("email_recuperacion_admin",150)->unique();
+            $table->char("pin_admin",5)->nullable();
+            $table->text("token_admin")->nullable();
             $table->string("clave",255);
             $table->enum("status_admin",["ACTIVO","INACTIVO"]);
             $table->timestamps();

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('tienda', function (Blueprint $table) {
             $table->uuid("id_tienda")->primary();
             $table->string("nombre_tienda",150);
-            $table->string("email",150);
-            $table->string("email_recuperacion_admin",150);
-            $table->char("pin_tienda",5);
-            $table->text("token_tienda");
+            $table->string("email",150)->unique();
+            $table->string("email_recuperacion_admin",150)->unique();
+            $table->char("pin_tienda",5)->nullable();
+            $table->text("token_tienda")->nullable();
             $table->string("clave",255);
             $table->enum("status_tienda",["ACTIVO","INACTIVO"]);
             $table->timestamps();

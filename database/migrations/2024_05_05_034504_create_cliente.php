@@ -17,10 +17,10 @@ return new class extends Migration
             $table->foreign("id_pais")->on("pais")->references("id_pais")->cascadeOnDelete()->cascadeOnUpdate();
             $table->char("id_persona",36);
             $table->foreign("id_persona")->on("persona")->references("id_persona")->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("email",150);
-            $table->string("email_recuperacion_cliente",150);
-            $table->char("pin_cliente",5);
-            $table->text("token_cliente");
+            $table->string("email",150)->unique();
+            $table->string("email_recuperacion_cliente",150)->unique();
+            $table->char("pin_cliente",5)->nullable();
+            $table->text("token_cliente")->nullable();
             $table->string("clave",255);
             $table->enum("status_cliente",["ACTIVO","INACTIVO"]);
             $table->timestamps();
