@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('direccion_de_entrega_cliente', function (Blueprint $table) {
-            $table->uuid("id_direcciones_de_entrega_cliente")->primary();
+            $table->uuid("id_direccion_de_entrega_cliente")->primary();
             $table->char("id_cliente",36);
             $table->foreign("id_cliente")->on("cliente")->references("id_cliente")->cascadeOnDelete()->cascadeOnUpdate();
             $table->string("codigo_postal",10);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('direcciones_de_entrega_cliente');
+        Schema::dropIfExists('direccion_de_entrega_cliente');
     }
 };

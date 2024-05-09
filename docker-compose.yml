@@ -30,6 +30,7 @@ services:
     links:
       - db-mysql
       - soketi
+      - php
 
   php:
       build:
@@ -42,9 +43,18 @@ services:
         - ./:/var/www/html  # Monta el directorio actual al directorio raíz de la aplicación web dentro del contenedor
       ports:
         - ${DOCKER_PHP_PORT}  # Mapeo de puertos, utiliza una variable de entorno para definir el puerto de PHP
+        - "8080:8080"
       environment:
         - XDEBUG_PORT=${DOCKER_XDEBUG_PORT}  # Configura el puerto XDebug usando una variable de entorno
-      mem_limit: 6000M 
+      mem_limit: 6000M
+#   node:
+#     image: node:20-alpine3.18  # Puedes cambiar la versión de Node.js según tus necesidades
+#     container_name: node
+#     working_dir: /var/www/html  # Establece el directorio de trabajo
+#     volumes:
+#         - ./:/var/www/html  # Monta el directorio actual al directorio raíz de la aplicación web dentro del contenedor
+#     ports:
+#         - "${PUERTO_NODE}"  # Puedes cambiar el puerto según tus necesidades
 
    # Configuración del servicio Horizon, utilizado comúnmente con Laravel para la gestión de colas
   horizon:

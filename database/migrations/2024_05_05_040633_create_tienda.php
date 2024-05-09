@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid("id_tienda")->primary();
             $table->string("nombre_tienda",150);
             $table->string("email",150)->unique();
-            $table->string("email_recuperacion_admin",150)->unique();
+            $table->string("email_recuperacion_tienda",150)->unique();
             $table->char("pin_tienda",5)->nullable();
             $table->text("token_tienda")->nullable();
             $table->string("clave",255);

@@ -1,5 +1,8 @@
 FROM php:8.3.6-fpm-alpine
 
+# RUN apk add --no-cache nodejs=20.12.1-r0
+# RUN apk add --no-cache npm=10.2.5-r0
+
 # Set working directory
 WORKDIR /var/www/html
 

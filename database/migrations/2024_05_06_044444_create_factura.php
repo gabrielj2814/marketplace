@@ -20,8 +20,8 @@ return new class extends Migration
             $table->date("fecha_factura");
             $table->double("sub_total",20,2);
             $table->double("iva",20,2);
-            $table->char("id_direcciones_de_entrega_cliente",36);
-            $table->foreign("id_direcciones_de_entrega_cliente")->on("direccion_de_entrega_cliente")->references("id_direcciones_de_entrega_cliente")->cascadeOnDelete()->cascadeOnUpdate();
+            $table->char("id_direccion_de_entrega_cliente",36);
+            $table->foreign("id_direccion_de_entrega_cliente")->on("direccion_de_entrega_cliente")->references("id_direccion_de_entrega_cliente")->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum("status_factura",["ACTIVO","INACTIVO"]);
             $table->timestamps();
             $table->softDeletes();
